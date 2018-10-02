@@ -1,3 +1,4 @@
+export TERM="xterm-256color"
 #
 # Executes commands at the start of an interactive session.
 #
@@ -32,6 +33,3 @@ if [ -d $HOME/.anyenv ] ; then
     export PATH="$HOME/.anyenv/bin:$PATH"
     eval "$(anyenv init -)"
 fi
-
-export PATH=$PATH:$(go env GOPATH)/bin
-export GOPATH=$(go env GOPATH)
