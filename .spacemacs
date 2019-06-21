@@ -356,7 +356,14 @@ you should place your code here."
   (global-set-key [triple-wheel-down] 'scroll-up-with-lines)
 
 
-
+  (setq-default dotspacemacs-configuration-layers '(
+                                                    (auto-completion :variables
+                                                                     auto-completion-return-key-behavior 'complete
+                                                                     auto-completion-tab-key-behavior 'cycle
+                                                                     auto-completion-complete-with-key-sequence nil
+                                                                     auto-completion-complete-with-key-sequence-delay 0.1
+                                                                     auto-completion-private-snippets-directory nil)
+                                                    ))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
