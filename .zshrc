@@ -35,3 +35,8 @@ fi
 
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOPATH=$(go env GOPATH)
+
+export PATH="/usr/local/cuda/bin:$PATH"
+export CUDA_HOME="/usr/local/cuda:$CUDA_HOME"
+export LD_LIBRARY_PATH="/usr/local/cuda/lib:$LD_LIBRARY_PATH"
+export CPATH="/usr/local/cuda/include:$CPATH"
