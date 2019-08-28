@@ -34,5 +34,8 @@ if [ -d $HOME/.anyenv ] ; then
     eval "$(anyenv init -)"
 fi
 
-export PATH=$PATH:$(go env GOPATH)/bin
-export GOPATH=$(go env GOPATH)
+# Pyenv
+if [ -d $HOME/.pyenv ] ; then
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+fi

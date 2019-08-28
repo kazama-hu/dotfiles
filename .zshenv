@@ -9,8 +9,3 @@
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
-
-export PATH=$PATH:/Users/huu/usr/local/bin
-
-export GOPATH=/Users/huu/go
-export GO15VENDOREXPERIMENT=1
