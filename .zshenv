@@ -15,8 +15,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 case ${OSTYPE} in
   darwin*)
-    export CFLAGS="-I$(brew --prefix openssl)/include:$CFLAGS"
-    export LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix sqlite3)/lib:$LDFLAGS"
-    export CPPFLAGS="-I$(brew --prefix sqlite3)/include:$CPPFLAGS"
+    export CFLAGS="-I/usr/local/opt/openssl/include:$CFLAGS"
+    export LDFLAGS="-L/usr/local/opt/openssl/lib:$LDFLAGS"
     ;;
 esac
