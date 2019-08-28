@@ -13,9 +13,14 @@ fi
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
+# Each OS
 case ${OSTYPE} in
   darwin*)
-    export CFLAGS="-I/usr/local/opt/openssl/include:$CFLAGS"
-    export LDFLAGS="-L/usr/local/opt/openssl/lib:$LDFLAGS"
+    # For Iterm2
+    export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
+    ;;
+  linux*)
+    # 256 color terminal
+    export TERM="xterm-256color"
     ;;
 esac
