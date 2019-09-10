@@ -10,8 +10,12 @@ if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
+# pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
+# Pipenv
+export PIPENV_VENV_IN_PROJECT=1
 
 # Each OS
 case ${OSTYPE} in
@@ -22,5 +26,22 @@ case ${OSTYPE} in
   linux*)
     # 256 color terminal
     export TERM="xterm-256color"
+    # Intel MKL & MPI
+    export MKL_ROOT_DIR=/opt/intel/mkl
+    export MPI_ROOT_DIR=/opt/intel/mpi
+
+    export LD_LIBRARY_PATH=$MKL_ROOT_DIR/lib/intel64:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=$MPI_ROOT_DIR/intel64/lib:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=$MPI_ROOT_DIR/intel64/libfabric/lib:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=/opt/intel/lib/intel64_lin:$LD_LIBRARY_PATH
+
+    export LIBRARY_PATH=$MKL_ROOT_DIR/lib/intel64:$LIBRARY_PATH
+    export LIBRARY_PATH=$MPI_ROOT_DIR/intel64/lib:$LIBRARY_PATH
+    # Jupyter GitLab HostName
+    export GITLAB_URL='http://165.93.138.231:8080'
+    # Bazel
+    export PATH=$HOME/bin:$PATH
+    # Intel MKL-DNN
+    export LD_LIBRARY_PATH=$HOME/opt/mkldnn/lib:$LD_LIBRARY_PATH
     ;;
 esac
