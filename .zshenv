@@ -18,6 +18,8 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+export VIRTUALENVWRAPPER_PYTHON=$PYENV_ROOT/shims/python
+
 # Pipenv
 export PIPENV_VENV_IN_PROJECT=1
 
