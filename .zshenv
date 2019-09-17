@@ -38,8 +38,6 @@ case ${OSTYPE} in
 
     export LIBRARY_PATH=$MKL_ROOT_DIR/lib/intel64:$LIBRARY_PATH
     export LIBRARY_PATH=$MPI_ROOT_DIR/intel64/lib:$LIBRARY_PATH
-    # Jupyter GitLab HostName
-    export GITLAB_URL='http://165.93.138.231:8080'
     # Bazel
     export PATH=$HOME/bin:$PATH
     # Intel MKL-DNN
