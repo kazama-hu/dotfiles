@@ -1,0 +1,10 @@
+set autoindent
+
+# syntax highlightの設定
+include "/usr/share/nano/*"
+
+# Colorの設定
+set titlecolor white,green
+set statuscolor white,green
+set keycolor white,green
+set functioncolor white,green
