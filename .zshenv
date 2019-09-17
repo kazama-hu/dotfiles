@@ -27,9 +27,6 @@ case ${OSTYPE} in
   linux*)
     # 256 color terminal
     export TERM="xterm-256color"
-    # CUDA
-    export PATH=$HOME/cuda-10.0/bin:$PATH
-    export LD_LIBRARY_PATH=$HOME/cuda-10.0/lib64:$LD_LIBRARY_PATH
 
     # Intel MKL & MPI
     export MKL_ROOT_DIR=/opt/intel/mkl
