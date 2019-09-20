@@ -27,6 +27,13 @@ case ${OSTYPE} in
   linux*)
     # 256 color terminal
     export TERM="xterm-256color"
+    
+    # CUDA
+    export PATH="/usr/local/cuda/bin:$PATH"
+    export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
+
+    # JupyterLab (and TensorBoard) on docker-compose
+    export NB_UID=`id -u`
 
     # Intel MKL & MPI
     export MKL_ROOT_DIR=/opt/intel/mkl
