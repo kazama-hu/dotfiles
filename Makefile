@@ -1,32 +1,27 @@
+SHELL=/usr/bin/zsh
 init:
-	zsh
-    if [ ! -e "${ZDOTDIR:-$HOME}/.zprezto" ]; then
-		git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-    fi
-    setopt EXTENDED_GLOB
-    for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-    	ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-    done
-
-    chsh -s /usr/bin/zsh
-
-	if [ ! -e "${HOME}/.pyenv" ]; then
-		git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-	fi
+	$(SHELL) -c 'if [[ ! -e "${HOME}/.zprezto" ]]; then git clone --recursive https://github.com/sorin-ionescu/prezto.git "${HOME}/.zprezto"; fi'
+	$(SHELL) -c 'setopt EXTENDED_GLOB'
+	$(SHELL) -c 'for rcfile in "${HOME}"/.zprezto/runcoms/^README.md(.N); do ln -s "$rcfile" "${HOME}/.${rcfile:t}"; done'
+	$(SHELL) -c 'if [[ ! -e "${HOME}/.pyenv" ]]; then git clone https://github.com/pyenv/pyenv.git ~/.pyenv; fi'
 
 deploy:
-	ln -sf .latexmkrc ~/.latexmkrc
-	ln -sf .nanorc ~/.nanorc
-	ln -sf .spacemacs ~/.spacemacs
-	ln -sf .tmux.conf ~/.tmux.conf
-	ln -sf .p10k.zsh ~/.p10k.zsh
-	ln -sf .zpreztorc ~/.zpreztorc
-	ln -sf .zshrc ~/.zshrc
-
-	exec $SHELL -l
+	ln -sf ~/dotfiles/.latexmkrc ~/.latexmkrc
+	ln -sf ~/dotfiles/.nanorc ~/.nanorc
+	ln -sf ~/dotfiles/.spacemacs ~/.spacemacs
+	ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
+	ln -sf ~/dotfiles/.p10k.zsh ~/.p10k.zsh
+	ln -sf ~/dotfiles/.zpreztorc ~/.zpreztorc
+	ln -sf ~/dotfiles/.zshrc ~/.zshrc
+	chsh -s $(SHELL)
+	exec "${SHELL}"
+	$(SHELL)
 
 server_2:
-	ln -sf .zshenv_2 ~/.zshenv
+	ln -sf ~/dotfiles/.zshenv_2 ~/.zshenv
 
 server_4:
-	ln -sf .zshenv_4 ~/.zshenv
+	ln -sf ~/dotfiles/.zshenv_4 ~/.zshenv
+
+server_5:
+	ln -sf ~/dotfiles/.zshenv_5 ~/.zshenv
