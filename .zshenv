@@ -15,9 +15,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# Python Virtual
-source $(pwd)/.venv/bin/activate
-
 # Pipenv
 export PIPENV_VENV_IN_PROJECT=1
 
