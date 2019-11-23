@@ -15,6 +15,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+# Python Virtual
+source $(pwd)/.venv/bin/activate
+
 # Pipenv
 export PIPENV_VENV_IN_PROJECT=1
 
@@ -29,8 +32,10 @@ case ${OSTYPE} in
     export TERM="xterm-256color"
     
     # CUDA
-    export PATH="/usr/local/cuda/bin:$PATH"
-    export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
+    export CUDA_PATH=/usr/local/cuda-10.0
+    export CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-10.0
+    export PATH=/usr/local/cuda-10.0/bin:$PATH
+    export LD_LIBRARY_PATH=/usr/local/cuda-10.0/lib64:$LD_LIBRARY_PATH
 
     # JupyterLab (and TensorBoard) on docker-compose
     export NB_UID=`id -u`
@@ -43,12 +48,21 @@ case ${OSTYPE} in
     export LD_LIBRARY_PATH=$MPI_ROOT_DIR/intel64/lib:$LD_LIBRARY_PATH
     export LD_LIBRARY_PATH=$MPI_ROOT_DIR/intel64/libfabric/lib:$LD_LIBRARY_PATH
     export LD_LIBRARY_PATH=/opt/intel/lib/intel64_lin:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
 
     export LIBRARY_PATH=$MKL_ROOT_DIR/lib/intel64:$LIBRARY_PATH
     export LIBRARY_PATH=$MPI_ROOT_DIR/intel64/lib:$LIBRARY_PATH
-    # Bazel
-    export PATH=$HOME/bin:$PATH
+
     # Intel MKL-DNN
     export LD_LIBRARY_PATH=$HOME/opt/mkldnn/lib:$LD_LIBRARY_PATH
+    
+    # BLAS and LAPACK
+    export LD_LIBRARY_PATH=/opt/blas/lib:$LD_LIBRARY_PATH
+    
+    # OpenMP
+    export OMP_NUM_THREADS=1
+    
+    # Other PATHs
+    export PATH=$HOME/opt/bin:$PATH
     ;;
 esac
