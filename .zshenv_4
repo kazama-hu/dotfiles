@@ -1,0 +1,39 @@
+#
+# Defines environment variables.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Ensure that a non-login, non-interactive shell has a defined environment.
+if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprofile"
+fi
+
+# Python Binary (Source Builded)
+export PATH=/home/kazama/usr/local/python374/bin:$PATH
+
+case ${OSTYPE} in
+  darwin*)
+    # For Iterm2
+    export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
+    ;;
+  linux*)
+    # 256 color terminal
+    export TERM="xterm-256color"
+
+	# CUDA
+	export CUDA_PATH=/usr/local/cuda
+	export CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda
+	export PATH=/usr/local/cuda/bin:$PATH
+	export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+
+	# cuDNN
+	export CFLAGS=-I/opt/cudnn/include
+	export LDFLAGS=-L/opt/cudnn/lib64
+	export LD_LIBRARY_PATH=/opt/cudnn/lib64:$LD_LIBRARY_PATH
+
+    # OpenBLAS Library Path
+    export LD_LIBRARY_PATH=/opt/openblas/lib:$LD_LIBRARY_PATH
+    ;;
+esac
