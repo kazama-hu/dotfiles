@@ -23,17 +23,19 @@ case ${OSTYPE} in
     export TERM="xterm-256color"
 
 	# CUDA
-	export CUDA_PATH=/usr/local/cuda
-	export CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda
-	export PATH=/usr/local/cuda/bin:$PATH
-	export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+	export CUDA_PATH="/usr/local/cuda"
+	export CUDA_TOOLKIT_ROOT_DIR="/usr/local/cuda"
+	export PATH="/usr/local/cuda/bin:$PATH"
+	export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
 
-	# cuDNN
-	export CFLAGS=-I/opt/cudnn/include
-	export LDFLAGS=-L/opt/cudnn/lib64
-	export LD_LIBRARY_PATH=/opt/cudnn/lib64:$LD_LIBRARY_PATH
+	# cuDNN	
+	export LD_LIBRARY_PATH="/home/kazama/usr/local/cudnn/lib64:$LD_LIBRARY_PATH"
+	export CPATH="/home/kazama/usr/local/cudnn/include:$CPATH"
+	export CFLAGS=-I/home/kazama/usr/local/cudnn/include
+	export LDFLAGS=-L/home/kazama/usr/local/cudnn/lib64
+	export CUDNN_ROOT_DIR=$HOME/usr/local/cudnn
 
-    # OpenBLAS Library Path
-    export LD_LIBRARY_PATH=/opt/openblas/lib:$LD_LIBRARY_PATH
+    # OpenBLAS and LAPACK Library Path
+    export LD_LIBRARY_PATH="/home/kazama/usr/local/openblas/lib:$LD_LIBRARY_PATH"
     ;;
 esac
