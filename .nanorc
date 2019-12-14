@@ -1,9 +1,0 @@
-set autoindent
-
-# syntax highlightの設定
-include "/usr/share/nano/*"
-
-set nowrap
-set smooth
-set suspend
-set tabsize 4
