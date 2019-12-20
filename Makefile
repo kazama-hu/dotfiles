@@ -14,8 +14,7 @@ deploy: init
 	ln -sf ~/dotfiles/.zpreztorc ~/.zpreztorc
 	ln -sf ~/dotfiles/.zshrc ~/.zshrc
 	chsh -s $(SHELL)
-	exec "${SHELL}"
-	$(SHELL)
+	exec "$(SHELL)"
 
 macbook:
 	ln -sf ~/dotfiles/.zshenv ~/.zshenv
