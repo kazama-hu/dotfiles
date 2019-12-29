@@ -10,30 +10,22 @@ if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; t
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
-# Python Binary (Source Builded)
-export PATH=/home/kazama/usr/local/python374/bin:$PATH
+# iTerm2
+export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
-case ${OSTYPE} in
-  darwin*)
-    # For Iterm2
-    export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
-  ;;
-  linux*)
-    # 256 color terminal
-    export TERM="xterm-256color"
+# Pyenv PATH
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
-    # CUDA
-    export CUDA_PATH="/usr/local/cuda"
-	  export CUDA_TOOLKIT_ROOT_DIR="/usr/local/cuda"
-	  export PATH="/usr/local/cuda/bin:$PATH"
+# CUDA
+export CUDA_PATH=/usr/local/cuda
+export PATH=${CUDA_PATH}/bin:$PATH
+export LD_LIBRARY_PATH=${CUDA_PATH}/lib64:$LD_LIBRARY_PATH
 
-	  # cuDNN
-	  export CFLAGS=-I"$HOME/cudnn/include"
-	  export LDFLAGS=-L"$HOME/cudnn/lib"
-	  export LD_LIBRARY_PATH="$HOME/cudnn/lib:$LD_LIBRARY_PATH"
-	  export CUDNN_ROOT_DIR="$HOME/cudnn"
-
-    # OpenBLAS and LAPACK Library Path
-    export LD_LIBRARY_PATH="$HOME/usr/local/openblas/lib:$LD_LIBRARY_PATH"
-  ;;
-esac
+# MKL Parallel
+export OPENBLAS_NUM_THREADS=16
+export OMP_NUM_THREADS=16
+export MKL_NUM_THREADS=16
