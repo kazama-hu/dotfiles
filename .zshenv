@@ -20,6 +20,9 @@ if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
 fi
 
+# rbenv
+eval "$(rbenv init -)"
+
 # For Iterm2
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 # OpenMP - OpenBLAS
