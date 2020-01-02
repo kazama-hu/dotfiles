@@ -27,3 +27,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # Aliases
 ## Colorls
 alias ls='colorls -lA --sd'
+alias oldls='/bin/ls'
