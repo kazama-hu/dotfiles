@@ -13,6 +13,10 @@ fi
 # iTerm2
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
+# Local PATH
+export PATH=$HOME/.local/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/.local/lib:$LD_LIBRARY_PATH
+
 # CUDA
 export CUDA_PATH=/usr/local/cuda
 export PATH=${CUDA_PATH}/bin:$PATH
