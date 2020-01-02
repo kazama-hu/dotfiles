@@ -21,7 +21,10 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # rbenv
-eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+if which rbenv > /dev/null; then
+    eval "$(rbenv init -)"
+fi
 
 # For Iterm2
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
