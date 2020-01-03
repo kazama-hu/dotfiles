@@ -26,6 +26,9 @@ if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
 fi
 
+# colorls
+source $(dirname $(gem which colorls))/tab_complete.sh
+
 # For Iterm2
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 # OpenMP - OpenBLAS
