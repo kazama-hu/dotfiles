@@ -13,6 +13,9 @@ fi
 # iTerm2
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
+# colorls
+source $(dirname $(gem which colorls))/tab_complete.sh
+
 # Local PATH
 export PATH=$HOME/.local/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/.local/lib:$LD_LIBRARY_PATH
