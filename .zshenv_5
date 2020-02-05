@@ -32,11 +32,6 @@ if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
 fi
 
-# CUDA
-export CUDA_PATH=/usr/local/cuda
-export PATH=${CUDA_PATH}/bin:$PATH
-export LD_LIBRARY_PATH=${CUDA_PATH}/lib64:$LD_LIBRARY_PATH
-
 # MKL Parallel
 export OPENBLAS_NUM_THREADS=16
 export OMP_NUM_THREADS=16
