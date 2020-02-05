@@ -13,9 +13,6 @@ fi
 # iTerm2
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
-# colorls
-source $(dirname $(gem which colorls))/tab_complete.sh
-
 # Local PATH
 export PATH=$HOME/.local/bin:$PATH
 
@@ -31,6 +28,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
 fi
+
+# colorls
+source $(dirname $(gem which colorls))/tab_complete.sh
 
 # MKL Parallel
 export OPENBLAS_NUM_THREADS=16
